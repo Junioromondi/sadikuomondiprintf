@@ -5,16 +5,27 @@
  *
  * 
  */
-int (*get_op(const char c))
+int _printf(const char *format, ...)
 {
-	int i = 0;
-        flags_p fp[] = {
+	int i;
 
-		{"c", print_char},
-		{"s", print_str},
-		{"%", print_percent}
+	if (format[0] == '%')
+	{
 
 	}
 
+	for (i = 0; format[i] != '\0'; i++)
+	{
+		count ++;
+	}
+	return (count);
+}
+int main(void)
+{
+	const char str[];
+	
+	str = "cs";
+
+	_printf("c);
 	return (0);
 }
