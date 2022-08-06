@@ -7,25 +7,10 @@
  */
 int _printf(const char *format, ...)
 {
-	int i;
+	va_list list;
 
-	if (format[0] == '%')
-	{
+	spec_f str_arr[] = {{"c", print_char(list)}, {"s", print_str(list)}, {"%", print_perc(list)}};
 
-	}
+	va_start(list, format);
 
-	for (i = 0; format[i] != '\0'; i++)
-	{
-		count ++;
-	}
-	return (count);
-}
-int main(void)
-{
-	const char str[];
-	
-	str = "cs";
-
-	_printf("c);
-	return (0);
 }
