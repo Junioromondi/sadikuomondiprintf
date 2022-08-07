@@ -7,10 +7,20 @@
  */
 int _printf(const char *format, ...)
 {
-	va_list list;
+	int printed_chars;
+	spec_f str_arr[] = {{"c", print_char}, {"s", print_str}, {"%", print_perc}};
 
-	spec_f str_arr[] = {{"c", print_char(list)}, {"s", print_str(list)}, {"%", print_perc(list)}};
+	va_list arg_list;
 
-	va_start(list, format);
+	if (format == NULL)
+	{
+		return (-1);
+	}
+
+	va_start(arg_list, format);
+	printed_chars = parser(format, str_arr, arg_list);
+	va_end(arg_list);
+
+	return (printed_chars);
 
 }
